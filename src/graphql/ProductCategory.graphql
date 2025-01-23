@@ -1,0 +1,10 @@
+fragment ProductCategory on Category {
+  id
+  slug
+  name
+  description
+  backgroundImage {
+    url
+    alt
+  }
+}

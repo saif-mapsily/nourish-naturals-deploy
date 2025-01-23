@@ -1,0 +1,13 @@
+query ProductListByCollection($slug: String!) {
+  collection(slug: $slug, channel: "default-channel") {
+    name
+    description
+    products(first: 10) {
+      edges {
+        node {
+          ...ProductListItem
+        }
+      }
+    }
+  }
+}

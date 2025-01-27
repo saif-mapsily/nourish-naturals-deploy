@@ -3,18 +3,18 @@ import { ProductCategoryFragment } from "@/gql/graphql";
 import Link from "next/link";
 
 export default async function ShopCategories({
-  categories=[],
+  categories = [],
 }: {
   categories: ProductCategoryFragment[];
 }) {
   return (
-    <section className="w-full bg-[#EAF5EB] flex flex-col justify-start items-center py-[72px] px-2.5 rounded-2xl relative">
+    <section className="mt-4 w-full bg-[#EAF5EB] flex flex-col justify-start items-center py-[72px] px-2.5 rounded-2xl relative">
       <h3 className="text-[#1A1C1E] text-3xl font-light mb-12">
         Shop by Categories
       </h3>
       <div className="flex gap-6 justify-center items-start">
         {categories.map((item, index) => (
-          <Link key={index} href="/">
+          <Link key={index} href={`/shop?category=${item.slug}`} passHref>
             <Image
               src={item.backgroundImage?.url || ""}
               alt={item.backgroundImage?.alt || ""}

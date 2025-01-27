@@ -33317,28 +33317,55 @@ export type _Service = {
   sdl?: Maybe<Scalars['String']['output']>;
 };
 
-export type ProductCategoryFragment = { __typename?: 'Category', id: string, slug: string, name: string, description?: string | null, backgroundImage?: { __typename?: 'Image', url: string, alt?: string | null } | null };
+export type FilteredProductItemListQueryVariables = Exact<{
+  slugs?: InputMaybe<Array<Scalars['ID']['input']> | Scalars['ID']['input']>;
+  gte?: InputMaybe<Scalars['Float']['input']>;
+  lte?: InputMaybe<Scalars['Float']['input']>;
+  sortBy: OrderDirection;
+  after?: InputMaybe<Scalars['String']['input']>;
+}>;
+
+
+export type FilteredProductItemListQuery = { __typename?: 'Query', products?: { __typename?: 'ProductCountableConnection', edges: Array<{ __typename?: 'ProductCountableEdge', node: { __typename?: 'Product', id: string, name: string, slug: string, rating?: number | null, variants?: Array<{ __typename?: 'ProductVariant', weight?: { __typename?: 'Weight', value: number, unit: WeightUnitsEnum } | null, pricing?: { __typename?: 'VariantPricingInfo', price?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number } } | null, priceUndiscounted?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number } } | null } | null }> | null, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null } }>, pageInfo: { __typename?: 'PageInfo', hasNextPage: boolean, hasPreviousPage: boolean, startCursor?: string | null, endCursor?: string | null } } | null };
+
+export type ProductCategoryFragment = { __typename?: 'Category', id: string, slug: string, name: string, backgroundImage?: { __typename?: 'Image', url: string, alt?: string | null } | null };
 
 export type ProductCategoryListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ProductCategoryListQuery = { __typename?: 'Query', categories?: { __typename?: 'CategoryCountableConnection', edges: Array<{ __typename?: 'CategoryCountableEdge', node: { __typename?: 'Category', id: string, slug: string, name: string, description?: string | null, backgroundImage?: { __typename?: 'Image', url: string, alt?: string | null } | null } }> } | null };
+export type ProductCategoryListQuery = { __typename?: 'Query', categories?: { __typename?: 'CategoryCountableConnection', edges: Array<{ __typename?: 'CategoryCountableEdge', node: { __typename?: 'Category', id: string, slug: string, name: string, backgroundImage?: { __typename?: 'Image', url: string, alt?: string | null } | null } }> } | null };
+
+export type ProductDetailsQueryVariables = Exact<{
+  slug: Scalars['String']['input'];
+}>;
+
+
+export type ProductDetailsQuery = { __typename?: 'Query', product?: { __typename?: 'Product', id: string, slug: string, name: string, description?: string | null, seoTitle?: string | null, seoDescription?: string | null, rating?: number | null, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null, collections?: Array<{ __typename?: 'Collection', id: string, slug: string, name: string }> | null, category?: { __typename?: 'Category', id: string, name: string } | null, variants?: Array<{ __typename?: 'ProductVariant', id: string, name: string, sku?: string | null, quantityAvailable?: number | null, quantityLimitPerCustomer?: number | null, weight?: { __typename?: 'Weight', unit: WeightUnitsEnum, value: number } | null, media?: Array<{ __typename?: 'ProductMedia', id: string, url: string, alt: string }> | null, pricing?: { __typename?: 'VariantPricingInfo', price?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } | null, priceUndiscounted?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } | null } | null }> | null, pricing?: { __typename?: 'ProductPricingInfo', priceRange?: { __typename?: 'TaxedMoneyRange', start?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } } | null, stop?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } } | null } | null } | null } | null };
 
 export type ProductListByCategoryQueryVariables = Exact<{
   slugs?: InputMaybe<Array<Scalars['String']['input']> | Scalars['String']['input']>;
 }>;
 
 
-export type ProductListByCategoryQuery = { __typename?: 'Query', categories?: { __typename?: 'CategoryCountableConnection', edges: Array<{ __typename?: 'CategoryCountableEdge', node: { __typename?: 'Category', name: string, products?: { __typename?: 'ProductCountableConnection', edges: Array<{ __typename?: 'ProductCountableEdge', node: { __typename?: 'Product', id: string, name: string, slug: string, pricing?: { __typename?: 'ProductPricingInfo', priceRange?: { __typename?: 'TaxedMoneyRange', start?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } } | null, stop?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } } | null } | null } | null, category?: { __typename?: 'Category', id: string, name: string } | null, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null } }> } | null } }> } | null };
+export type ProductListByCategoryQuery = { __typename?: 'Query', categories?: { __typename?: 'CategoryCountableConnection', edges: Array<{ __typename?: 'CategoryCountableEdge', node: { __typename?: 'Category', products?: { __typename?: 'ProductCountableConnection', edges: Array<{ __typename?: 'ProductCountableEdge', node: { __typename?: 'Product', id: string, name: string, slug: string, rating?: number | null, variants?: Array<{ __typename?: 'ProductVariant', weight?: { __typename?: 'Weight', value: number, unit: WeightUnitsEnum } | null, pricing?: { __typename?: 'VariantPricingInfo', price?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number } } | null, priceUndiscounted?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number } } | null } | null }> | null, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null } }> } | null } }> } | null };
 
 export type ProductListByCollectionQueryVariables = Exact<{
   slug: Scalars['String']['input'];
 }>;
 
 
-export type ProductListByCollectionQuery = { __typename?: 'Query', collection?: { __typename?: 'Collection', name: string, description?: string | null, products?: { __typename?: 'ProductCountableConnection', edges: Array<{ __typename?: 'ProductCountableEdge', node: { __typename?: 'Product', id: string, name: string, slug: string, pricing?: { __typename?: 'ProductPricingInfo', priceRange?: { __typename?: 'TaxedMoneyRange', start?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } } | null, stop?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } } | null } | null } | null, category?: { __typename?: 'Category', id: string, name: string } | null, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null } }> } | null } | null };
+export type ProductListByCollectionQuery = { __typename?: 'Query', collection?: { __typename?: 'Collection', name: string, description?: string | null, products?: { __typename?: 'ProductCountableConnection', edges: Array<{ __typename?: 'ProductCountableEdge', node: { __typename?: 'Product', id: string, name: string, slug: string, rating?: number | null, variants?: Array<{ __typename?: 'ProductVariant', weight?: { __typename?: 'Weight', value: number, unit: WeightUnitsEnum } | null, pricing?: { __typename?: 'VariantPricingInfo', price?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number } } | null, priceUndiscounted?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number } } | null } | null }> | null, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null } }> } | null } | null };
 
-export type ProductListItemFragment = { __typename?: 'Product', id: string, name: string, slug: string, pricing?: { __typename?: 'ProductPricingInfo', priceRange?: { __typename?: 'TaxedMoneyRange', start?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } } | null, stop?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } } | null } | null } | null, category?: { __typename?: 'Category', id: string, name: string } | null, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null };
+export type ProductListItemFragment = { __typename?: 'Product', id: string, name: string, slug: string, rating?: number | null, variants?: Array<{ __typename?: 'ProductVariant', weight?: { __typename?: 'Weight', value: number, unit: WeightUnitsEnum } | null, pricing?: { __typename?: 'VariantPricingInfo', price?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number } } | null, priceUndiscounted?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number } } | null } | null }> | null, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null };
+
+export type ProductListItemBySlugQueryVariables = Exact<{
+  slug: Scalars['String']['input'];
+}>;
+
+
+export type ProductListItemBySlugQuery = { __typename?: 'Query', product?: { __typename?: 'Product', id: string, name: string, slug: string, rating?: number | null, variants?: Array<{ __typename?: 'ProductVariant', weight?: { __typename?: 'Weight', value: number, unit: WeightUnitsEnum } | null, pricing?: { __typename?: 'VariantPricingInfo', price?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number } } | null, priceUndiscounted?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number } } | null } | null }> | null, thumbnail?: { __typename?: 'Image', url: string, alt?: string | null } | null } | null };
+
+export type VariantDetailsFragment = { __typename?: 'ProductVariant', id: string, name: string, sku?: string | null, quantityAvailable?: number | null, quantityLimitPerCustomer?: number | null, weight?: { __typename?: 'Weight', unit: WeightUnitsEnum, value: number } | null, media?: Array<{ __typename?: 'ProductMedia', id: string, url: string, alt: string }> | null, pricing?: { __typename?: 'VariantPricingInfo', price?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } | null, priceUndiscounted?: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', currency: string, amount: number } } | null } | null };
 
 export class TypedDocumentString<TResult, TVariables>
   extends String
@@ -33359,7 +33386,6 @@ export const ProductCategoryFragmentDoc = new TypedDocumentString(`
   id
   slug
   name
-  description
   backgroundImage {
     url
     alt
@@ -33371,25 +33397,24 @@ export const ProductListItemFragmentDoc = new TypedDocumentString(`
   id
   name
   slug
-  pricing {
-    priceRange {
-      start {
+  rating
+  variants {
+    weight {
+      value
+      unit
+    }
+    pricing {
+      price {
         gross {
           amount
-          currency
         }
       }
-      stop {
+      priceUndiscounted {
         gross {
           amount
-          currency
         }
       }
     }
-  }
-  category {
-    id
-    name
   }
   thumbnail(size: 1024, format: WEBP) {
     url
@@ -33397,6 +33422,88 @@ export const ProductListItemFragmentDoc = new TypedDocumentString(`
   }
 }
     `, {"fragmentName":"ProductListItem"}) as unknown as TypedDocumentString<ProductListItemFragment, unknown>;
+export const VariantDetailsFragmentDoc = new TypedDocumentString(`
+    fragment VariantDetails on ProductVariant {
+  id
+  name
+  sku
+  quantityAvailable
+  quantityLimitPerCustomer
+  weight {
+    unit
+    value
+  }
+  media {
+    id
+    url
+    alt
+  }
+  pricing {
+    price {
+      gross {
+        currency
+        amount
+      }
+    }
+    priceUndiscounted {
+      gross {
+        currency
+        amount
+      }
+    }
+  }
+}
+    `, {"fragmentName":"VariantDetails"}) as unknown as TypedDocumentString<VariantDetailsFragment, unknown>;
+export const FilteredProductItemListDocument = new TypedDocumentString(`
+    query FilteredProductItemList($slugs: [ID!], $gte: Float, $lte: Float, $sortBy: OrderDirection!, $after: String) {
+  products(
+    first: 10
+    channel: "default-channel"
+    filter: {categories: $slugs, price: {gte: $gte, lte: $lte}}
+    sortBy: {direction: $sortBy, field: NAME}
+    after: $after
+  ) {
+    edges {
+      node {
+        ...ProductListItem
+      }
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+      startCursor
+      endCursor
+    }
+  }
+}
+    fragment ProductListItem on Product {
+  id
+  name
+  slug
+  rating
+  variants {
+    weight {
+      value
+      unit
+    }
+    pricing {
+      price {
+        gross {
+          amount
+        }
+      }
+      priceUndiscounted {
+        gross {
+          amount
+        }
+      }
+    }
+  }
+  thumbnail(size: 1024, format: WEBP) {
+    url
+    alt
+  }
+}`) as unknown as TypedDocumentString<FilteredProductItemListQuery, FilteredProductItemListQueryVariables>;
 export const ProductCategoryListDocument = new TypedDocumentString(`
     query ProductCategoryList {
   categories(first: 10) {
@@ -33411,18 +33518,90 @@ export const ProductCategoryListDocument = new TypedDocumentString(`
   id
   slug
   name
-  description
   backgroundImage {
     url
     alt
   }
 }`) as unknown as TypedDocumentString<ProductCategoryListQuery, ProductCategoryListQueryVariables>;
+export const ProductDetailsDocument = new TypedDocumentString(`
+    query ProductDetails($slug: String!) {
+  product(slug: $slug, channel: "default-channel") {
+    id
+    slug
+    name
+    description
+    seoTitle
+    seoDescription
+    rating
+    thumbnail(size: 1024, format: WEBP) {
+      url
+      alt
+    }
+    collections {
+      id
+      slug
+      name
+    }
+    category {
+      id
+      name
+    }
+    variants {
+      ...VariantDetails
+    }
+    pricing {
+      priceRange {
+        start {
+          gross {
+            amount
+            currency
+          }
+        }
+        stop {
+          gross {
+            amount
+            currency
+          }
+        }
+      }
+    }
+  }
+}
+    fragment VariantDetails on ProductVariant {
+  id
+  name
+  sku
+  quantityAvailable
+  quantityLimitPerCustomer
+  weight {
+    unit
+    value
+  }
+  media {
+    id
+    url
+    alt
+  }
+  pricing {
+    price {
+      gross {
+        currency
+        amount
+      }
+    }
+    priceUndiscounted {
+      gross {
+        currency
+        amount
+      }
+    }
+  }
+}`) as unknown as TypedDocumentString<ProductDetailsQuery, ProductDetailsQueryVariables>;
 export const ProductListByCategoryDocument = new TypedDocumentString(`
     query ProductListByCategory($slugs: [String!]) {
   categories(filter: {slugs: $slugs}, first: 10) {
     edges {
       node {
-        name
         products(first: 10, channel: "default-channel") {
           edges {
             node {
@@ -33438,25 +33617,24 @@ export const ProductListByCategoryDocument = new TypedDocumentString(`
   id
   name
   slug
-  pricing {
-    priceRange {
-      start {
+  rating
+  variants {
+    weight {
+      value
+      unit
+    }
+    pricing {
+      price {
         gross {
           amount
-          currency
         }
       }
-      stop {
+      priceUndiscounted {
         gross {
           amount
-          currency
         }
       }
     }
-  }
-  category {
-    id
-    name
   }
   thumbnail(size: 1024, format: WEBP) {
     url
@@ -33481,28 +33659,61 @@ export const ProductListByCollectionDocument = new TypedDocumentString(`
   id
   name
   slug
-  pricing {
-    priceRange {
-      start {
+  rating
+  variants {
+    weight {
+      value
+      unit
+    }
+    pricing {
+      price {
         gross {
           amount
-          currency
         }
       }
-      stop {
+      priceUndiscounted {
         gross {
           amount
-          currency
         }
       }
     }
-  }
-  category {
-    id
-    name
   }
   thumbnail(size: 1024, format: WEBP) {
     url
     alt
   }
 }`) as unknown as TypedDocumentString<ProductListByCollectionQuery, ProductListByCollectionQueryVariables>;
+export const ProductListItemBySlugDocument = new TypedDocumentString(`
+    query ProductListItemBySlug($slug: String!) {
+  product(slug: $slug, channel: "default-channel") {
+    ...ProductListItem
+  }
+}
+    fragment ProductListItem on Product {
+  id
+  name
+  slug
+  rating
+  variants {
+    weight {
+      value
+      unit
+    }
+    pricing {
+      price {
+        gross {
+          amount
+        }
+      }
+      priceUndiscounted {
+        gross {
+          amount
+        }
+      }
+    }
+  }
+  thumbnail(size: 1024, format: WEBP) {
+    url
+    alt
+  }
+}`) as unknown as TypedDocumentString<ProductListItemBySlugQuery, ProductListItemBySlugQueryVariables>;

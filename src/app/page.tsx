@@ -9,7 +9,10 @@ import Testimonial from "@/components/home/testimonial";
 import { executeGraphQL } from "@/lib/graphql-client";
 import { ProductCategoryListDocument } from "@/gql/graphql";
 
-export default async function Home() {
+export default async function Home(
+  searchParams: Promise<{ category: string }>
+) {
+  const { category } = await searchParams;
   const data = await executeGraphQL(ProductCategoryListDocument, {
     revalidate: 60,
   });
@@ -22,7 +25,7 @@ export default async function Home() {
       <FeaturedProducts />
       <Process />
       <ShopCategories categories={categories} />
-      <AllProducts categories={categories} slug="all" />
+      <AllProducts categories={categories} slug={category} />
       <OurService />
       <Testimonial />
     </div>

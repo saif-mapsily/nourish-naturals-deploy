@@ -41,16 +41,13 @@ const NavItems = ({
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="flex flex-col gap-2 p-2">
                   {categories.map((category) => (
-                    <Link
+                    <NavigationMenuLink
                       key={category.id}
-                      href={`/category/${category.slug}`}
-                      legacyBehavior
-                      passHref
+                      href={`/shop/category=${category.slug}`}
+                      className="text-sm font-medium rounded-md px-4 py-3 hover:bg-gray-50 hover:text-accent-foreground"
                     >
-                      <NavigationMenuLink className="text-sm font-medium rounded-md px-4 py-3 hover:bg-gray-50 hover:text-accent-foreground">
-                        {category.name}
-                      </NavigationMenuLink>
-                    </Link>
+                      {category.name}
+                    </NavigationMenuLink>
                   ))}
                 </NavigationMenuContent>
               </>
@@ -70,14 +67,15 @@ export default async function Navbar() {
   const categories = data.categories?.edges.map((e) => e.node);
 
   return (
-    <header className="z-10 fixed w-full top-8 px-24">
-      <nav className="bg-white rounded-xl container mx-auto flex items-center justify-between px-8 py-4">
+    <header className="z-10 left-0 w-full px-24 absolute top-8">
+      <div className="bg-white rounded-xl container mx-auto flex items-center justify-between px-8 py-4">
         <Link href="/" aria-label="Home">
           <Image
             src="/logo.png"
             alt="nourish-naturals-logo"
             width={80}
             height={80}
+            className="h-10 object-contain"
           />
         </Link>
         <NavItems categories={categories || []} />
@@ -103,7 +101,7 @@ export default async function Navbar() {
             </SheetContent>
           </Sheet>
         </div>
-      </nav>
+      </div>
     </header>
   );
 }

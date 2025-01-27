@@ -1,36 +1,29 @@
-"use client";
-
-import { useRouter, usePathname } from "next/navigation";
-import { useEffect } from "react";
-
-import CategoryButton from "./category-button";
+import Link from "next/link";
+import { Button } from "../ui/button";
 import { ScrollArea, ScrollBar } from "../ui/scroll-area";
-
-type Category = {
-  name: string;
-};
+import { ProductCategoryFragment } from "@/gql/graphql";
 
 export default function CategoryTagSlider({
   categories,
+  slug,
 }: {
-  categories: Category[];
+  categories: ProductCategoryFragment[];
+  slug: string;
 }) {
-  const router = useRouter();
-  const pathname = usePathname();
-
-  const newSearchParams = new URLSearchParams();
-  newSearchParams.set("category", "all");
-
-  useEffect(() => {
-    router.push(`${pathname}?${newSearchParams.toString()}`);
-  }, []);
   return (
-    <ScrollArea className="w-[1120px] h-14 whitespace-nowrap">
-      <CategoryButton text="All" />
-      {categories.length &&
-        categories.map((category, index) => (
-          <CategoryButton key={index} text={category} className="mx-2" />
+    <ScrollArea className="my-8">
+      <div className="w-full flex justify-center gap-4">
+        <Link href="/" scroll={false}>
+          <Button>ALL</Button>
+        </Link>
+        {categories.map((category, index) => (
+          <Link href={`?category=${category.slug}`} key={index} scroll={false}>
+            <Button variant={slug === category.slug ? "default" : "outline"}>
+              {category.name}
+            </Button>
+          </Link>
         ))}
+      </div>
       <ScrollBar orientation="horizontal" />
     </ScrollArea>
   );

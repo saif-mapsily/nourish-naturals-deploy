@@ -7,23 +7,24 @@ import {
   ProductCategoryFragment,
   ProductListItemFragment,
 } from "@/gql/graphql";
+import { Button } from "../ui/button";
 
 export default async function AllProducts({
-  categories = [],
-  slug = "all",
+  categories,
+  slug,
 }: {
   categories: ProductCategoryFragment[];
   slug: string;
 }) {
   const data = await executeGraphQL(ProductListByCategoryDocument, {
     variables: {
-      slugs: [],
+      slugs: slug && [slug],
     },
     revalidate: 60,
   });
 
   const products: ProductListItemFragment[] = [];
-  data?.categories?.edges.map((e) => {
+  data.categories?.edges.map((e) => {
     e.node.products?.edges.map((p) => {
       products.push(p.node);
     });
@@ -32,29 +33,17 @@ export default async function AllProducts({
   return (
     <section className="mt-4 w-full bg-muted p-24">
       <h2 className="text-3xl font-light text-center">All Products</h2>
-      {/* <CategoryTagSlider categories={categories} /> */}
+      <CategoryTagSlider slug={slug} categories={categories} />
       <div className="grid grid-cols-4 gap-y-12 gap-x-6">
         {products.map((product, index) => {
-          return (
-            <ProductCard
-              key={index}
-              image={product.thumbnail?.url}
-              title={product.name}
-              quantity={10}
-              stars={4}
-              reviews={3}
-              regularPrice={100}
-              sellPrice={200}
-            />
-          );
+          return <ProductCard key={index} {...product} />;
         })}
       </div>
-      <Link
-        href="/products"
-        className="rounded-sm text-sm font-semibold text-white bg-[#013D17] px-4 py-3"
-      >
-        View all
-      </Link>
+      <div className="flex justify-center">
+        <Link href="/shop">
+          <Button>View all</Button>
+        </Link>
+      </div>
     </section>
   );
 }

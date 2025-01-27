@@ -27,7 +27,7 @@ export default async function Hero() {
             <br />
             organic products
           </h1>
-          <Link href="/">
+          <Link href="/shop">
             <Button size="lg">
               Shop now <ArrowRight />
             </Button>

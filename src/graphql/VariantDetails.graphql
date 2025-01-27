@@ -1,0 +1,30 @@
+fragment VariantDetails on ProductVariant {
+  id
+  name
+  sku
+  quantityAvailable
+  quantityLimitPerCustomer
+  weight {
+    unit
+    value
+  }
+  media {
+    id
+    url
+    alt
+  }
+  pricing {
+    price {
+      gross {
+        currency
+        amount
+      }
+    }
+    priceUndiscounted {
+      gross {
+        currency
+        amount
+      }
+    }
+  }
+}

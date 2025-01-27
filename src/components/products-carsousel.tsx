@@ -16,26 +16,20 @@ export default function ProductCarousel({
   products: ProductListItemFragment[];
 }) {
   return (
-    <div className="mt-8 flex flex-col gap-5">
-      {title && <h4 className="text-black text-2xl font-light text-center">{title}</h4>}
+    <div className="flex flex-col gap-6">
+      {title && (
+        <h4 className="text-black text-2xl font-light text-center">{title}</h4>
+      )}
       <Carousel>
         <CarouselContent>
           {products.map((item, index) => (
             <CarouselItem key={index}>
-              <ProductCard
-                image={item.thumbnail?.url}
-                title={item.name}
-                quantity={10}
-                stars={2}
-                reviews={3}
-                regularPrice={100}
-                sellPrice={50}
-              />
+              <ProductCard {...item} />
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="h-16 w-16 -ml-8" />
-        <CarouselNext className="h-16 w-16 -mr-8" />
+        <CarouselPrevious className="h-12 w-12 -ml-8" />
+        <CarouselNext className="h-12 w-12 -mr-8" />
       </Carousel>
     </div>
   );

@@ -47,7 +47,7 @@ function ProcessCard({ item }: { item: (typeof PROCESS)[0] }) {
 
 export default function Process() {
   return (
-    <PeachContainer className="mt-4 p-24">
+    <PeachContainer className="p-24">
       <div className="flex flex-col gap-12 relative">
         <div className="flex gap-2 w-1/2">
           <h3 className="relative text-3xl font-light">

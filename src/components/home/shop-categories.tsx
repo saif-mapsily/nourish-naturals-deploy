@@ -8,7 +8,7 @@ export default async function ShopCategories({
   categories: ProductCategoryFragment[];
 }) {
   return (
-    <section className="mt-4 w-full bg-[#EAF5EB] flex flex-col justify-start items-center py-[72px] px-2.5 rounded-2xl relative">
+    <section className="w-full bg-[#EAF5EB] flex flex-col justify-start items-center p-24 rounded-2xl relative">
       <h3 className="text-[#1A1C1E] text-3xl font-light mb-12">
         Shop by Categories
       </h3>

@@ -7,6 +7,7 @@ import {
   NavigationMenuTrigger,
   NavigationMenuContent,
   NavigationMenuLink,
+  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
@@ -30,21 +31,21 @@ const NavItems = ({
           <NavigationMenuItem key={item.name}>
             {item.href !== "/categories" ? (
               <Link href={item.href} legacyBehavior passHref>
-                <NavigationMenuLink className="text-sm font-medium rounded-md px-4 py-3 hover:bg-gray-50 hover:text-accent-foreground">
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   {item.name}
                 </NavigationMenuLink>
               </Link>
             ) : (
               <>
-                <NavigationMenuTrigger className="text-sm font-medium rounded-md px-4 py-3 hover:bg-gray-50 hover:text-accent-foreground">
+                <NavigationMenuTrigger className={navigationMenuTriggerStyle()}>
                   {item.name}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="flex flex-col gap-2 p-2">
                   {categories.map((category) => (
                     <NavigationMenuLink
                       key={category.id}
-                      href={`/shop/category=${category.slug}`}
-                      className="text-sm font-medium rounded-md px-4 py-3 hover:bg-gray-50 hover:text-accent-foreground"
+                      href={`/shop?category=${category.slug}`}
+                      className={navigationMenuTriggerStyle()}
                     >
                       {category.name}
                     </NavigationMenuLink>

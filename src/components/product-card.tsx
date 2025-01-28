@@ -3,16 +3,21 @@ import { Button } from "./ui/button";
 import { ShoppingCart } from "lucide-react";
 import { ProductListItemFragment } from "@/gql/graphql";
 import Ratings from "./ratings";
+import Link from "next/link";
 
 export default function ProductCard({
+  slug,
   name,
   thumbnail,
   variants,
   rating,
 }: ProductListItemFragment) {
   return (
-    <div className="flex flex-col gap-4 w-[264px] min-h-[486px]">
-      <div className="flex justify-center items-center rounded-lg bg-white overflow-hidden p-8">
+    <Link
+      href={`/product/${slug}`}
+      className="flex flex-col gap-4 w-[250px] min-h-[500px]"
+    >
+      <div className="h-2/3 flex justify-center items-center rounded-lg bg-white overflow-hidden p-8">
         <Image
           src={thumbnail?.url || ""}
           alt={thumbnail?.alt || ""}
@@ -45,6 +50,6 @@ export default function ProductCard({
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

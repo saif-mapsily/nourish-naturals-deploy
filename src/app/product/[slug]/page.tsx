@@ -41,7 +41,7 @@ export default async function ProductPage({
     .toString();
 
   return (
-    <div className="bg-gray-50 pt-32 px-24">
+    <div className="bg-gray-50 pt-36 px-24">
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
@@ -55,7 +55,7 @@ export default async function ProductPage({
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
-      <div className="my-6 grid grid-cols-2 gap-6">
+      <div className="mt-6 grid grid-cols-2 gap-6">
         <ImagesViewer images={selectedVariant?.media || []} />
         <Info slug={params.slug} product={product} variant={selectedVariant} />
         <div className="my-4 space-y-2">

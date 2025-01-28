@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Separator } from "../ui/separator";
-import Icon from "../Icon";
+import Icon from "../icon";
 import { FEATURED_COMPANIES, FEATURES } from "@/constant/home";
 
 function FeatureCard({ item }: { item: (typeof FEATURES)[0] }) {
@@ -19,7 +19,7 @@ function FeaturedInCard({ name, image }: { name: string; image: string }) {
 
 export default function AboutUs() {
   return (
-    <section className="mt-4 w-full bg-primary py-36 px-24 rounded-2xl">
+    <section className="w-full bg-primary p-24 rounded-2xl">
       <div className="flex flex-col justify-center items-center gap-12 relative">
         <div className="w-full gap-8 flex justify-between absolute -top-60">
           {FEATURES.map((item, index) => (

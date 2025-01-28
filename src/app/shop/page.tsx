@@ -57,7 +57,7 @@ export default async function ShopPage({
   const products = data?.products?.edges.map((p) => p.node);
 
   return (
-    <section className="bg-gray-50 rounded-md flex flex-col items-center py-36 px-20">
+    <section className="bg-gray-50 rounded-md flex flex-col items-center py-36 px-24">
       <Hero />
       <div className="w-full mt-12 flex gap-4">
         <div className="w-1/4">

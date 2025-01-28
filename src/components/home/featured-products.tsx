@@ -11,7 +11,7 @@ export default async function FeaturedProducts() {
   const products = data.collection?.products?.edges.map((e) => e.node) || [];
 
   return (
-    <section className="mt-4 w-full bg-muted py-24 px-24 rounded-2xl">
+    <section className="w-full bg-muted p-24 rounded-2xl">
       <ProductCarousel title="Featured Products" products={products} />
     </section>
   );

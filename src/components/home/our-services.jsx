@@ -4,7 +4,7 @@ import { MoveRight } from "lucide-react";
 
 export default function OurService() {
   return (
-    <section className="mt-4 w-full bg-[#EAF5EB] flex flex-col justify-start items-center px-24 py-12 rounded-2xl relative">
+    <section className="w-full bg-[#EAF5EB] flex flex-col justify-start items-center p-24 rounded-2xl relative">
       <div className="flex w-full justify-center items-center gap-2">
         <Image
           src="/images/line-lady2.png"

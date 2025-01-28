@@ -1,5 +1,5 @@
 import OurService from "@/components/home/our-services";
-import AllProducts from "@/components/home/all-products";
+import AllProducts from "@/components/all-products";
 import ShopCategories from "@/components/home/shop-categories";
 import Process from "@/components/home/process";
 import FeaturedProducts from "@/components/home/featured-products";
@@ -19,7 +19,7 @@ export default async function Home(
   const categories = data.categories?.edges.map((e) => e.node) || [];
 
   return (
-    <div>
+    <>
       <Hero />
       <AboutUs />
       <FeaturedProducts />
@@ -28,6 +28,6 @@ export default async function Home(
       <AllProducts categories={categories} slug={category} />
       <OurService />
       <Testimonial />
-    </div>
+    </>
   );
 }

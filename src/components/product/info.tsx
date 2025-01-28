@@ -28,7 +28,7 @@ export default function Info({ product, variant, slug }: PROPS) {
         <p className="font-semibold text-xl text-primary/90">
           ₹ {variant?.pricing?.price?.gross?.amount}
         </p>
-        <p>₹ {variant?.pricing?.priceUndiscounted?.gross?.amount}</p>
+        <p className="line-through">₹ {variant?.pricing?.priceUndiscounted?.gross?.amount}</p>
         <span>MRP (Inc. all taxes)</span>
       </div>
       <p
@@ -43,11 +43,11 @@ export default function Info({ product, variant, slug }: PROPS) {
       </div>
       <div className="mt-4">
         <p className="text-sm font-light">
-          Size: {variant.weight?.value} {variant.weight?.unit}
+          Variant: {variant.weight?.value} {variant.weight?.unit}
         </p>
         <span className="mt-2 flex gap-2">
           {product?.variants?.map((v) => (
-            <Link key={v.id} href={`/product/${slug}?variant=${v.id}`}>
+            <Link key={v.id} href={`/product/${slug}?variant=${v.id}`} scroll={false}>
               <Button variant={v.id === variant.id ? "default" : "outline"}>
                 {v.name}
               </Button>

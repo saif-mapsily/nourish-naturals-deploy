@@ -1,4 +1,4 @@
-import Icon from "@/components/icon";
+import Icon from "@/components/image-icon";
 
 export default function SideLink({ icon, title, children }) {
   return (

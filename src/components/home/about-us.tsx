@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Separator } from "../ui/separator";
-import Icon from "../icon";
+import Icon from "../image-icon";
 import { FEATURED_COMPANIES, FEATURES } from "@/constant/home";
 
 function FeatureCard({ item }: { item: (typeof FEATURES)[0] }) {

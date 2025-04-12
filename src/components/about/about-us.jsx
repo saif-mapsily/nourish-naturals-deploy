@@ -28,7 +28,7 @@ export default function AboutUs() {
             produce.”
           </p>
           <span className="font-semibold text-[#4D775D] italic">
-            -Name, Founder
+            Toyyab Ali, Founder & CEO
           </span>
         </div>
       </div>

@@ -81,12 +81,12 @@ export default async function Navbar() {
         </Link>
         <NavItems categories={categories || []} />
         <div className="hidden md:flex space-x-4">
-          <Link href="/login" passHref>
+          {/* <Link href="/login" passHref>
             <Button variant="ghost">LOGIN</Button>
           </Link>
           <Link href="/login" passHref>
             <Button variant="ghost">CART (0)</Button>
-          </Link>
+          </Link> */}
         </div>
 
         {/* Mobile Navigation Menu */}

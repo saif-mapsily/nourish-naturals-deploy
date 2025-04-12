@@ -34,12 +34,6 @@ const RefundCancellationPolicy = () => {
                 product is out for delivery. In such an event, you may choose to
                 reject the product at the doorstep.
               </li>
-              <li>
-                NOURISH NATURALS does not accept cancellation requests for
-                perishable items like flowers, eatables, etc. However, the
-                refund/replacement can be made if the user establishes that the
-                quality of the product delivered is not good.
-              </li>
             </ul>
           </div>
 
@@ -48,6 +42,20 @@ const RefundCancellationPolicy = () => {
               <strong>Refund Policy</strong>
             </h4>
             <ul className="list-disc list-outside pl-8">
+              <li>
+                Customers can return the product within 3 days of delivery.
+              </li>
+              <li>
+                Replacement/exchange product will be delivered within 5 business
+                days.
+              </li>
+              <li>
+                In case of receipt of damaged or defective items, please report
+                to our customer service team. The request would be entertained
+                once the seller/merchant listed on the Platform has checked and
+                determined the same at its own end. This should be reported
+                within 3 days of receipt of products.
+              </li>
               <li>
                 In case of receipt of damaged or defective items, please report
                 to our customer service team. The request would be entertained

@@ -59,7 +59,7 @@ export default function HeroCarousel({
           Next
         </NextButton>
       </div>
-      <div className="overflow-hidden" ref={emblaRef}>
+      <div className="w-[360px] overflow-hidden" ref={emblaRef}>
         <div className="flex gap-5">
           {products.map((item, index) => (
             <div

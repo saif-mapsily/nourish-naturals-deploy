@@ -19,6 +19,7 @@ const ShippingPolicy = () => {
               delivering of the shipment, subject to courier company/post office
               norms.
             </p>
+            <p>Estimated shipping delivery time is 5-8 business days.</p>
             <p>
               Platform Owner shall not be liable for any delay in delivery by
               the courier company/postal authority. Delivery of all orders will

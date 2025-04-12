@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { MoveRight } from "lucide-react";
+import Link from "next/link";
 
 export default function OurService() {
   return (
@@ -15,7 +16,7 @@ export default function OurService() {
         />
         <div className="flex flex-col gap-4 md:w-1/2">
           <h2 className="text-base text-primary font-semibold">
-            Try Our Service
+            Try Our Products
           </h2>
           <h4 className="text-3xl font-light">
             Register yourself for future product notifications
@@ -24,9 +25,11 @@ export default function OurService() {
             Say hello to a more radiant, healthier you with personalized diet
             that's as unique as you are.
           </p>
-          <Button variant="outline" className="w-fit">
-            Register
-            <MoveRight size={24} />
+          <Button variant="outline" className="w-fit" asChild>
+            <Link href="/shop">
+              Shop
+              <MoveRight size={24} />
+            </Link>
           </Button>
         </div>
       </div>

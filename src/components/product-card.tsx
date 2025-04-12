@@ -15,7 +15,7 @@ export default function ProductCard({
   return (
     <Link
       href={`/product/${slug}`}
-      className="flex flex-col gap-4 w-[250px] min-h-[500px]"
+      className="flex flex-col gap-4 w-[250px]"
     >
       <div className="h-2/3 flex justify-center items-center rounded-lg bg-white overflow-hidden p-8">
         <Image

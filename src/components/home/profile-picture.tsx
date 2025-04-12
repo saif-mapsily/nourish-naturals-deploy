@@ -10,7 +10,7 @@ export function ProfilePicture({
 }) {
   return (
     <Avatar className={cn(className)}>
-      <AvatarImage src={image} />
+      <AvatarImage src={image} className="object-cover"/>
       <AvatarFallback>NN</AvatarFallback>
     </Avatar>
   );

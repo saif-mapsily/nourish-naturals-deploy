@@ -88,11 +88,6 @@ export default function Footer() {
           </Link>
         </li>
         <li>
-          <Link href="/return-policy" className="font-light">
-            Return Policy
-          </Link>
-        </li>
-        <li>
           <Link href="/shipping-policy" className="font-light">
             shipping Policy
           </Link>

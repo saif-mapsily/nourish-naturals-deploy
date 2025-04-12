@@ -42,7 +42,12 @@ export default function ContactPage() {
         </SideLink>
         <SideLink icon="/icons/group.png" title="Where to find us">
           <span className="text-xs text-[#2F3033]">
-            nourishnaturals@gmail.com
+            Email: nourishnaturals@gmail.com
+          </span>
+          <span className="text-xs text-[#2F3033]">Phone: +918006155869</span>
+          <span className="text-xs text-[#2F3033]">
+            Address: Name and Address of the Company: NOURISH NATURALS, 245,
+            BHAGWANPUR ROAD, Kishanpur Jamalpur RCP COLLEGE, Roorkee, India
           </span>
           <p className="text-xs text-[#2F3033]">
             Our response time is 24 hours for <br />

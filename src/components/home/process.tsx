@@ -60,7 +60,7 @@ export default function Process() {
             <ProcessCard key={index} item={item} />
           ))}
         </div>
-        <VideoComponent />
+        {/* <VideoComponent /> */}
       </div>
     </PeachContainer>
   );

@@ -34,15 +34,15 @@ export default async function Hero() {
         </Link>
         <div className="flex flex-col gap-2">
           <div className="flex">
-            {Array.from({ length: 5 }).map((_, index) => (
+            {Array.from({ length: 4 }).map((_, index) => (
               <ProfilePicture
                 key={index}
-                image="/images/eh.png"
+                image={`/images/avatar-${index + 1}.jpg`}
                 className={`${index > 0 ? "-ml-4" : "ml-0"}`}
               />
             ))}
           </div>
-          <span className="text-gray-800 font-semibold text-xs">100,000+</span>
+          <span className="text-gray-800 font-semibold text-xs">10,000+</span>
           <span className="text-gray-400 font-light text-xs">
             Satisfied Customers
           </span>

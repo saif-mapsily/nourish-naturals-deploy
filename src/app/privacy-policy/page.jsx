@@ -254,7 +254,7 @@ const PrivacyPolicy = () => {
               <li>Toyyab Ali</li>
               <li>Designation: CEO</li>
               <li>
-                Insert Name and Address of the Company: NOURISH NATURALS, 245,
+                Name and Address of the Company: NOURISH NATURALS, 245,
                 BHAGWANPUR ROAD, Kishanpur Jamalpur RCP COLLEGE, Roorkee, India
               </li>
               <li>Contact us: toyyabali000123@gmail.com</li>
